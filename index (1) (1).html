@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050914"><meta name="description" content="CELESTIAL — Beyond the Ordinary Sky. Explore the universe and discover telescope-based stargazing.">
+<title>CELESTIAL — Beyond the Ordinary Sky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050914;--panel:#0b1423;--panel2:#101d30;--ink:#edf4ff;--muted:#9aabc2;--line:rgba(190,214,245,.15);--blue:#9bc8ee;--violet:#a6a2d9;--gold:#d7bd8b;--max:1180px;--serif:"Playfair Display",serif;--sans:Manrope,system-ui,sans-serif;--mono:"DM Mono",monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:radial-gradient(ellipse at 20% 5%,#14233b 0,transparent 42%),radial-gradient(ellipse at 85% 35%,#17172f 0,transparent 40%),#050914}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}.eyebrow{font:11px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}h1,h2,h3,p{margin-top:0}h1,h2{letter-spacing:-.055em;line-height:1.04}h2{font-size:clamp(2.2rem,5vw,4.4rem);font-weight:500}h3{line-height:1.2}.serif{font-family:var(--serif)}.muted{color:var(--muted)}.section{padding:120px 0;position:relative}.section-head{max-width:740px;margin-bottom:48px}.section-head p{max-width:620px;color:var(--muted)}.rule{height:1px;background:var(--line);margin:26px 0}.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 21px;border:1px solid rgba(190,214,245,.38);border-radius:2px;background:rgba(155,200,238,.09);color:#f2f7ff;font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:.3s}.btn:hover{background:rgba(155,200,238,.2);border-color:var(--blue);transform:translateY(-2px)}.btn.primary{background:#dcecff;color:#07101d;border-color:#dcecff}.btn.primary:hover{background:#fff}.topbar{height:76px;position:fixed;z-index:50;top:0;left:0;right:0;display:flex;align-items:center;border-bottom:1px solid transparent;transition:.3s}.topbar.scrolled{background:rgba(5,9,20,.88);backdrop-filter:blur(18px);border-color:var(--line)}.nav{display:flex;align-items:center;justify-content:space-between}.brand{font-size:16px;letter-spacing:.28em;font-weight:700}.brand span{color:var(--blue)}.navlinks{display:flex;gap:23px;align-items:center}.navlinks a{font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#c3cede;transition:.2s}.navlinks a:hover{color:white}.menu{display:none;background:none;border:1px solid var(--line);padding:8px 11px}.progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--gold));z-index:80}
+.hero{min-height:100svh;display:grid;align-items:center;position:relative;overflow:hidden;padding:130px 0 80px}.hero:after{content:"";position:absolute;width:min(70vw,850px);aspect-ratio:1;border-radius:50%;right:-8%;top:8%;background:radial-gradient(circle at 38% 35%,#b7c8db 0,#6e819b 8%,#26364f 25%,#111c32 48%,#070d19 67%,transparent 70%);box-shadow:inset -45px -25px 70px #02050d,0 0 100px #516d9530;opacity:.72;animation:planetDrift 18s ease-in-out infinite alternate;z-index:-1}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 45%,#7389b01b,transparent 45%),linear-gradient(90deg,#050914 5%,#050914d9 42%,transparent 100%);z-index:0}.hero-content{position:relative;z-index:2;max-width:750px}.hero h1{font-size:clamp(4.5rem,13vw,10rem);font-weight:500;letter-spacing:.09em;margin:20px 0 0;text-shadow:0 0 55px #a8c8ed22}.hero .tag{font:clamp(1rem,2vw,1.4rem) var(--serif);color:#d4e3f5;letter-spacing:.06em;margin:12px 0 24px}.hero p{max-width:520px;color:#b3c1d3;font-size:15px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.scrollcue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font:10px var(--mono);letter-spacing:.2em;color:#aebbd0;display:flex;align-items:center;gap:14px}.scrollcue:before{content:"";height:38px;width:1px;background:linear-gradient(var(--blue),transparent);animation:scrollPulse 2s infinite}.hero-meta{position:absolute;right:4%;bottom:35px;font:10px var(--mono);color:#8495ad;letter-spacing:.12em;text-align:right}
+@keyframes planetDrift{to{transform:translate(-2%,2%) rotate(7deg)}}@keyframes scrollPulse{50%{opacity:.25;transform:scaleY(.65);transform-origin:top}}@keyframes shimmer{to{background-position:200% center}}@keyframes float{50%{transform:translateY(-12px)}}@keyframes spin{to{transform:rotate(360deg)}}
+#stars{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}.hero-content,.hero-meta,.scrollcue{z-index:2}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:50px;background:#09111d99}.stat{padding:24px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat strong{display:block;font:clamp(1.5rem,3vw,2.3rem) var(--serif);color:#e7f2ff}.stat span{font:10px var(--mono);letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{border:1px solid var(--line);background:linear-gradient(145deg,#101c2dba,#08111e);padding:25px;position:relative;overflow:hidden;transition:.35s;min-height:190px}.card:hover{transform:translateY(-5px);border-color:#8db6de66;background:#12233a}.card .num{font:11px var(--mono);color:var(--blue)}.card h3{font-size:19px;font-weight:500;margin:16px 0 10px}.card p{font-size:13px;color:var(--muted);margin:0}.card .learn{margin-top:18px;background:none;border:0;padding:0;color:var(--blue);font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase}.detail{display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:#c7d4e5}.card.open .detail{display:block}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.visual-orbit{min-height:410px;position:relative;display:grid;place-items:center;overflow:hidden;border:1px solid var(--line);background:radial-gradient(circle,#172945 0,#0b1526 45%,#070d18 75%)}.sun{width:68px;height:68px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff2c5,#e7a95e 42%,#9a4d22 75%);box-shadow:0 0 65px #e7a95e88;z-index:2}.orbit{position:absolute;border:1px solid #9ab9dc35;border-radius:50%;width:var(--w);height:var(--w);animation:spin var(--speed) linear infinite}.orbit:after{content:"";position:absolute;top:50%;left:-5px;width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 16px var(--c)}.planet-panel{padding:28px;border:1px solid var(--line);background:#0b1423}.planet-panel h3{font:36px var(--serif);margin:4px 0}.planet-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:20px 0}.planet-tabs button,.tool-tabs button{background:#0b1524;border:1px solid var(--line);padding:8px 12px;color:#aebdd0;font:10px var(--mono);text-transform:uppercase}.planet-tabs button.active,.tool-tabs button.active{background:#dcecff;color:#091321;border-color:#dcecff}.planet-data{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}.datum{padding:13px;background:#111f32}.datum span{display:block;color:var(--muted);font:9px var(--mono);text-transform:uppercase;letter-spacing:.1em}.datum b{font-size:14px;font-weight:500}
+.callout{border-left:2px solid var(--gold);padding:5px 0 5px 18px;color:#c6d1df;font-size:13px}.timeline{position:relative;margin-left:12px;border-left:1px solid #8eabc744}.event{position:relative;padding:0 0 35px 28px;display:grid;grid-template-columns:130px 1fr;gap:18px}.event:before{content:"";position:absolute;left:-5px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 15px #9bc8ee}.event time{font:11px var(--mono);color:var(--blue)}.event h3{margin:0 0 5px;font-weight:500}.event p{font-size:13px;color:var(--muted);margin:0}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:12px}.shot{position:relative;overflow:hidden;background:linear-gradient(140deg,#192d49,#080e1b);border:1px solid var(--line);cursor:pointer}.shot:nth-child(1),.shot:nth-child(5){grid-row:span 2}.shot:nth-child(3){grid-column:span 2}.shot img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:.5s}.shot:hover img{transform:scale(1.06);opacity:1}.shot:after{content:attr(data-label);position:absolute;bottom:0;left:0;right:0;padding:25px 14px 12px;background:linear-gradient(transparent,#030711dd);font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.pricecard{padding:34px;border:1px solid var(--line);background:linear-gradient(145deg,#111f32,#09111e);position:relative}.pricecard.featured{border-color:#9bc8ee80}.price{font:clamp(2.5rem,5vw,4rem) var(--serif);margin:20px 0}.price small{font:11px var(--mono);color:var(--muted)}.pricecard ul{padding-left:18px;color:var(--muted);font-size:13px;min-height:70px}
+.toolbox{border:1px solid var(--line);background:#0a1423;padding:30px}.tool-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.tool-content{min-height:170px}.tool-content label{display:block;font:10px var(--mono);color:var(--muted);text-transform:uppercase;margin:12px 0 6px}.tool-content input,.tool-content select,.booking input,.booking textarea,.booking select{width:100%;background:#050c17;color:#edf4ff;border:1px solid var(--line);padding:12px;outline:none}.result{font:clamp(1.5rem,4vw,2.6rem) var(--serif);color:var(--blue);margin-top:16px}.booking{display:grid;gap:12px}.booking .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.booking textarea{min-height:90px}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}.faq summary{cursor:pointer;list-style:none;font-size:15px}.faq summary:after{content:"+";float:right;color:var(--blue)}.faq details[open] summary:after{content:"−"}.faq p{color:var(--muted);font-size:13px;margin:14px 0 0;max-width:780px}
+footer{padding:65px 0 30px;border-top:1px solid var(--line);background:#030711}.footgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}.footlinks{display:grid;gap:10px;color:var(--muted);font:11px var(--mono)}.copyright{border-top:1px solid var(--line);margin-top:45px;padding-top:20px;color:#718198;font:10px var(--mono);display:flex;justify-content:space-between}
+.modal{position:fixed;inset:0;background:#02050deF;z-index:100;display:none;place-items:center;padding:25px}.modal.show{display:grid}.modal img{max-width:min(100%,1000px);max-height:82vh;object-fit:contain}.modal button{position:absolute;top:24px;right:25px;background:#17243a;border:1px solid var(--line);padding:10px 15px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}.reveal.visible{opacity:1;transform:none}.smallnote{font:10px var(--mono);color:#8394aa}.warning{padding:18px;border:1px solid #c99c5b66;background:#b8872a10;color:#d9c6a5;font-size:12px}
+@media(max-width:900px){.navlinks{display:none;position:absolute;top:76px;left:0;right:0;padding:20px 25px;background:#07101e;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.navlinks.show{display:flex}.menu{display:block}.hero:after{right:-35%;width:95vw;opacity:.42}.hero:before{background:linear-gradient(90deg,#050914eF,#05091488)}.cards{grid-template-columns:repeat(2,1fr)}.two-col{gap:28px}.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.wrap{width:min(100% - 30px,var(--max))}.section{padding:80px 0}.hero{min-height:92svh}.hero h1{font-size:clamp(3.4rem,18vw,6rem)}.statrow{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.cards,.two-col,.pricing,.footgrid{grid-template-columns:1fr}.visual-orbit{min-height:300px}.event{grid-template-columns:1fr;gap:5px;padding-bottom:26px}.gallery{grid-auto-rows:130px}.booking .grid2{grid-template-columns:1fr}.hero-meta{display:none}.pricecard{padding:25px}.copyright{display:block;line-height:2.2}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* ===== CELESTIAL IMMERSIVE 3D EXPANSION ===== */
+:root{--cyan:#a9d9f4;--deep:#020611}
+body{background-color:#030711}
+.section-kicker{font:10px var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--blue)}
+.scene-shell{position:relative;border:1px solid #9bc8ee30;background:radial-gradient(ellipse at 50% 45%,#172a45,#050a14 70%);overflow:hidden;min-height:540px;box-shadow:0 30px 100px #0008}
+.scene-shell canvas{display:block;width:100%;height:100%;min-height:540px;outline:none}
+.scene-overlay{position:absolute;inset:0;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:22px}
+.scene-overlay .scene-title{font:clamp(20px,3vw,34px) var(--serif);text-shadow:0 2px 20px #000}
+.scene-overlay .scene-sub{max-width:370px;color:#c2d0e1;font-size:12px;text-shadow:0 2px 12px #000}
+.scene-controls{display:flex;gap:8px;flex-wrap:wrap;pointer-events:auto}
+.scene-controls button{border:1px solid #b9d7f455;background:#06101dbb;color:#dcecff;padding:9px 12px;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(12px)}
+.scene-controls button.active,.scene-controls button:hover{background:#dcecff;color:#07101d}
+.scene-caption{font:10px var(--mono);letter-spacing:.12em;color:#b2c2d5;background:#03071199;padding:8px 10px;align-self:flex-start}
+.model-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.model-info{border:1px solid var(--line);padding:28px;background:linear-gradient(145deg,#111e30,#07101d)}
+.model-info h3{font:30px var(--serif)}
+.spec-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}
+.spec-list div{padding:12px;background:#101d2d}
+.spec-list span{display:block;color:var(--muted);font:9px var(--mono);text-transform:uppercase;letter-spacing:.12em}
+.spec-list b{font-size:13px;font-weight:500}
+.cosmic-chapter{display:grid;grid-template-columns:80px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
+.cosmic-chapter .chapter-no{font:24px var(--serif);color:var(--blue)}
+.cosmic-chapter h3{font:22px var(--serif);margin:0 0 8px}
+.cosmic-chapter p{color:var(--muted);font-size:13px;margin:0;max-width:850px}
+.scene-loading{position:absolute;inset:0;display:grid;place-items:center;background:#050914;color:#c7d9ed;font:11px var(--mono);letter-spacing:.16em;z-index:2;transition:opacity .6s}
+.scene-loading.done{opacity:0;pointer-events:none}
+@media(max-width:800px){.model-grid{grid-template-columns:1fr}.scene-shell,.scene-shell canvas{min-height:420px}}
+@media(max-width:600px){.scene-shell,.scene-shell canvas{min-height:350px}.scene-overlay{padding:13px}.scene-controls button{font-size:9px;padding:8px}.cosmic-chapter{grid-template-columns:48px 1fr;gap:12px}}
+
+
+/* ===== Premium cosmic inquiry experience ===== */
+.inquiry-section{isolation:isolate;overflow:hidden}
+.inquiry-section:before,.inquiry-section:after{content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(5px)}
+.inquiry-section:before{width:520px;height:520px;right:-180px;top:8%;background:radial-gradient(circle,#7d43d52b 0, #386fd51b 38%,transparent 70%);animation:inquiryGlow 12s ease-in-out infinite alternate}
+.inquiry-section:after{width:440px;height:440px;left:-190px;bottom:-8%;background:radial-gradient(circle,#d34eaa20 0,#35b9d51a 42%,transparent 70%);animation:inquiryGlow 15s ease-in-out infinite alternate-reverse}
+.inquiry-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:20px;align-items:stretch}
+.inquiry-card{position:relative;overflow:hidden;border:1px solid rgba(173,190,255,.18);border-radius:18px;background:linear-gradient(145deg,rgba(18,26,49,.86),rgba(7,13,29,.88));box-shadow:0 24px 80px #0005,inset 0 1px 0 #ffffff0b;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.inquiry-card:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;padding:1px;background:linear-gradient(135deg,#9d72ff55,#56d8f033 38%,transparent 65%,#e879d344);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.7}
+.inquiry-info{padding:clamp(25px,4vw,44px);min-height:100%;display:flex;flex-direction:column;align-items:flex-start}
+.inquiry-orb{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;margin-bottom:32px;background:radial-gradient(circle at 35% 30%,#e6d9ff,#8d69d9 35%,#30235f 72%);box-shadow:0 0 35px #9466ff55,0 0 90px #42bce522;animation:orbFloat 5s ease-in-out infinite}
+.inquiry-orb span{font-size:30px;color:#fff;text-shadow:0 0 18px white}
+.inquiry-info h3{font:clamp(2.2rem,4vw,3.5rem)/1.02 var(--sans);letter-spacing:-.06em;margin:16px 0}
+.inquiry-info h3 em{font-weight:500;color:#d9c9ff}
+.inquiry-info>p{max-width:390px;font-size:13px;margin-bottom:30px}
+.email-label{font:9px var(--mono);letter-spacing:.2em;color:#8fa6c9;margin-bottom:10px}
+.inquiry-email{font-size:clamp(14px,1.6vw,18px);font-weight:700;letter-spacing:-.025em;color:#f1eaff;text-shadow:0 0 22px #a778ff55;overflow-wrap:anywhere;transition:color .25s,text-shadow .25s}
+.inquiry-email:hover{color:#bceeff;text-shadow:0 0 22px #54cfff99}
+.inquiry-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.inquiry-actions .btn{font-size:10px;padding:11px 13px;letter-spacing:.06em}
+.copy-email{background:#ffffff08}
+.copy-status{min-height:18px;margin:9px 0 0;font:10px var(--mono);color:#9be5d1}
+.inquiry-footnote{margin-top:auto;padding-top:34px;color:#93a4bd;font:9px var(--mono);letter-spacing:.08em;display:flex;align-items:center;gap:9px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#7ce5bd;box-shadow:0 0 12px #7ce5bd}
+.inquiry-form{padding:clamp(23px,3.5vw,38px)}
+.form-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}
+.form-heading h3{font-size:25px;font-weight:600;margin:7px 0 0;letter-spacing:-.04em}
+.form-index{font:10px var(--mono);color:#8195b5;letter-spacing:.1em}
+.inquiry-fields{display:grid;grid-template-columns:1fr 1fr;gap:17px 14px}
+.field{min-width:0}
+.field-wide{grid-column:1/-1}
+.field label{display:block;margin:0 0 7px;color:#cbd7eb;font:10px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.field label span{color:#d8a8ff}
+.field label small{font:9px var(--mono);text-transform:none;letter-spacing:0;color:#8495ad}
+.field input,.field select,.field textarea{width:100%;min-width:0;border:1px solid rgba(177,197,232,.17);border-radius:9px;padding:13px 14px;color:#eef4ff;background:rgba(3,9,22,.65);outline:none;font:12px var(--sans);transition:border-color .25s,box-shadow .25s,background .25s}
+.field input::placeholder,.field textarea::placeholder{color:#64748c}
+.field select{color-scheme:dark}
+.field textarea{min-height:112px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#9f83ff;box-shadow:0 0 0 3px #9f83ff20,0 0 24px #6e5aff16;background:#080f20}
+.send-inquiry{width:100%;margin-top:20px;min-height:51px;border:1px solid #c9b7ff;background:linear-gradient(105deg,#d9caff,#a8d8f5 48%,#e7b8ef);background-size:200% 100%;color:#0a1020;font-weight:800;letter-spacing:.14em;justify-content:space-between;padding:14px 18px;box-shadow:0 0 26px #9d72ff24;animation:sendGradient 7s ease infinite}
+.send-inquiry:hover{transform:translateY(-3px);box-shadow:0 8px 35px #9d72ff55,0 0 0 4px #9d72ff18;border-color:#fff}
+.send-arrow{font-size:19px;transition:transform .25s}
+.send-inquiry:hover .send-arrow{transform:translate(4px,-3px)}
+.form-note{line-height:1.7;margin:13px 0 0;color:#8799b4}
+@keyframes inquiryGlow{to{transform:translate3d(25px,-20px,0) scale(1.12)}}
+@keyframes orbFloat{50%{transform:translateY(-8px) rotate(8deg)}}
+@keyframes sendGradient{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media(max-width:850px){.inquiry-layout{grid-template-columns:1fr}.inquiry-info{min-height:0}.inquiry-footnote{margin-top:25px}}
+@media(max-width:560px){.inquiry-layout{gap:13px}.inquiry-info,.inquiry-form{padding:23px 19px}.inquiry-fields{grid-template-columns:1fr;gap:14px}.field-wide{grid-column:auto}.inquiry-orb{width:62px;height:62px;margin-bottom:23px}.inquiry-actions{width:100%}.inquiry-actions .btn{flex:1}.inquiry-email{font-size:15px}.form-heading h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.inquiry-orb,.inquiry-section:before,.inquiry-section:after,.send-inquiry{animation:none}}
+
+
+/* Persistent animated galaxy layer: remains fixed while the page scrolls. */
+#cosmicBackground{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.82}
+body:before{z-index:-2}
+body>header,body>main,body>footer,body>.modal,body>.progress{position:relative;z-index:1}
+.topbar{z-index:50}.progress{z-index:80}.modal{z-index:100}
+.hero{isolation:isolate}
+.section:not(.inquiry-section){background-color:transparent}
+.discover-panel{border:1px solid #a8bdf52b;border-radius:18px;padding:clamp(20px,4vw,38px);background:linear-gradient(135deg,#10162ac9,#070c1bd9);backdrop-filter:blur(16px);box-shadow:0 25px 80px #0005}
+.discover-panel>label{display:block;font:10px var(--mono);letter-spacing:.18em;color:var(--blue);margin-bottom:10px}
+.discover-search{display:flex;gap:10px;align-items:stretch}
+.discover-search input{flex:1;min-width:0;border:1px solid #b5c9ed35;border-radius:8px;background:#030916b8;color:var(--ink);padding:14px 16px;outline:none}
+.discover-search input:focus{border-color:#a6a2d9;box-shadow:0 0 0 3px #a6a2d922}
+.discover-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.discover-result{border:1px solid var(--line);border-radius:10px;padding:17px;background:#101a2b99}
+.discover-result h3{margin:0 0 6px;font:19px var(--serif)}
+.discover-result p{margin:0;color:var(--muted);font-size:13px}
+.discover-result .tags{font:9px var(--mono);letter-spacing:.1em;color:#b9a7ff;text-transform:uppercase;margin-bottom:8px}
+.fact-box{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:22px;padding:20px;border:1px solid #a88cff30;border-radius:12px;background:linear-gradient(110deg,#7449b51c,#39a8d112)}
+.fact-box p{font:clamp(1.15rem,2.5vw,1.8rem) var(--serif);margin:8px 0 0}
+@media(max-width:620px){.discover-results{grid-template-columns:1fr}.discover-search{flex-direction:column}.fact-box{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){#cosmicBackground{opacity:.35}}
+
+</style>
+</head>
+<body>
+<canvas id="cosmicBackground" aria-hidden="true"></canvas>
+<div class="progress" id="progress"></div>
+<header class="topbar" id="topbar"><div class="wrap nav"><a class="brand" href="#home">CELE<span>S</span>TIAL</a><nav class="navlinks" id="navlinks"><a href="#home">Home</a><a href="#universe">Universe</a><a href="#solar">Solar system</a><a href="#deep-space">Deep space</a><a href="#3d-universe">3D universe</a><a href="#3d-telescope">3D telescope</a><a href="#missions">Missions</a><a href="#tools">Astronomy</a><a href="#discover">Field guide</a><a href="#telescope">Telescope</a><a href="#gallery">Gallery</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a></nav><button class="menu" id="menu" aria-label="Toggle navigation">☰</button></div></header>
+<main>
+<section class="hero" id="home"><canvas id="stars"></canvas><div class="wrap hero-content"><div class="eyebrow">A journey through space & time</div><h1>CELESTIAL</h1><div class="tag">Beyond the Ordinary Sky.</div><p>Discover the wonders of the universe, explore distant galaxies, and experience the night sky like never before.</p><div class="hero-actions"><a class="btn primary" href="#universe">Explore the universe <span>↗</span></a><a class="btn" href="#telescope">The telescope experience</a></div></div><div class="hero-meta">18° 04′ N &nbsp; · &nbsp; 73° 14′ E<br>LOOK UP. WONDER MORE.</div><div class="scrollcue">SCROLL TO EXPLORE</div></section>
+<section class="section" id="universe"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">01 / The grand picture</div><h2>The universe is<br><em class="serif">bigger than imagination.</em></h2><p>From the first moments after the Big Bang to the cosmic web we observe today, every direction holds a story. Explore the ideas that help astronomers understand our universe.</p></div><div class="statrow reveal"><div class="stat"><strong>13.8B</strong><span>Approx. years old</span></div><div class="stat"><strong>~ observable</strong><span>Universe has a horizon</span></div><div class="stat"><strong>299,792</strong><span>km/s · speed of light</span></div><div class="stat"><strong>Billions</strong><span>Of galaxies (estimate)</span></div></div><div class="cards" style="margin-top:18px">
+<article class="card reveal"><span class="num">01 — ORIGIN</span><h3>The Big Bang</h3><p>The universe evolved from an extremely hot, dense early state about 13.8 billion years ago.</p><div class="detail">The Big Bang was not an explosion into pre-existing empty space. It describes the expansion of space itself. The model is supported by galaxy redshifts, the cosmic microwave background and the abundance of light elements.</div><button class="learn">Explore concept +</button></article>
+<article class="card reveal"><span class="num">02 — EXPANSION</span><h3>Cosmic expansion</h3><p>On the largest scales, distances between unbound galaxies grow as space expands.</p><div class="detail">The expansion is described by the scale factor in cosmology. Gravitationally bound systems, such as the Solar System and most galaxies, do not simply expand along with the universe.</div><button class="learn">Explore concept +</button></article>
+<article class="card reveal"><span class="num">03 — INVISIBLE MASS</span><h3>Dark matter</h3><p>An unseen form of matter inferred from its gravitational effects.</p><div class="detail">Galaxy rotation, gravitational lensing and the growth of cosmic structure point to dark matter. Its particle identity remains unknown; it is not the same thing as dark energy.</div><button class="learn">Explore concept +</button></article>
+<article class="card reveal"><span class="num">04 — ACCELERATION</span><h3>Dark energy</h3><p>A name for whatever drives the observed accelerated expansion of the universe.</p><div class="detail">Dark energy is a component in the standard cosmological model. A cosmological constant is the simplest explanation, but its physical nature is still an open question.</div><button class="learn">Explore concept +</button></article>
+<article class="card reveal"><span class="num">05 — COSMIC ECHO</span><h3>Cosmic microwave background</h3><p>The cooled-afterglow light released when the early universe became transparent.</p><div class="detail">This radiation dates from about 380,000 years after the Big Bang. Its tiny temperature variations preserve clues about the universe's early contents and structure.</div><button class="learn">Explore concept +</button></article>
+<article class="card reveal"><span class="num">06 — FABRIC</span><h3>Space-time</h3><p>Space and time form a four-dimensional structure shaped by matter and energy.</p><div class="detail">In general relativity, gravity is described as curvature of space-time. Massive objects change the geometry around them, influencing the paths of matter and light.</div><button class="learn">Explore concept +</button></article>
+<article class="card reveal"><span class="num">07 — DISTANCE</span><h3>What is a light-year?</h3><p>A distance: how far light travels in one year through a vacuum.</p><div class="detail">One light-year is about 9.46 trillion kilometres. Because light takes time to travel, looking far into space also means looking back in time.</div><button class="learn">Explore concept +</button></article>
+<article class="card reveal"><span class="num">08 — HORIZON</span><h3>Observable universe</h3><p>The region from which light has had time to reach us since the early universe.</p><div class="detail">Its radius today is about 46.5 billion light-years because space expanded while the light travelled. The entire universe may be much larger, perhaps infinite; we do not know.</div><button class="learn">Explore concept +</button></article>
+<article class="card reveal"><span class="num">09 — SCALE</span><h3>Cosmic scale</h3><p>From moons and planets to stars, galaxies and the cosmic web.</p><div class="detail">Astronomers use astronomical units for Solar System distances, light-years for nearby stars and parsecs or megaparsecs for galactic scales.</div><button class="learn">Explore concept +</button></article>
+</div></div></section>
+<section class="section" id="solar" style="background:linear-gradient(180deg,transparent,#0a1422 45%,transparent)"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">02 / Our neighbourhood</div><h2>A star. Eight worlds.<br><em class="serif">Endless discovery.</em></h2><p>Select a planet to explore its basic properties. The educational orbit view is deliberately not to scale; the distance view spaces planets by their average distance from the Sun.</p></div><div class="two-col"><div class="visual-orbit reveal" id="orbitView"><div class="sun" title="Sun"></div><div class="orbit" style="--w:105px;--speed:5s;--c:#aaa9a1"></div><div class="orbit" style="--w:150px;--speed:8s;--c:#d6b77e"></div><div class="orbit" style="--w:200px;--speed:11s;--c:#6aa7db"></div><div class="orbit" style="--w:250px;--speed:15s;--c:#b96f55"></div><div class="orbit" style="--w:310px;--speed:22s;--c:#d7a66c"></div><div class="orbit" style="--w:365px;--speed:28s;--c:#d9c59d"></div><div class="orbit" style="--w:420px;--speed:34s;--c:#80c8d1"></div><div class="orbit" style="--w:475px;--speed:40s;--c:#5876c7"></div><div class="smallnote" style="position:absolute;bottom:15px">ILLUSTRATIVE ORBITS · NOT TO SCALE</div></div><div class="planet-panel reveal"><div class="eyebrow">Planet dossier</div><div class="planet-tabs" id="planetTabs"></div><h3 id="planetName">Earth</h3><p class="muted" id="planetDesc">Our ocean-covered home world.</p><div class="planet-data" id="planetData"></div><div class="rule"></div><div class="smallnote" id="planetFact"></div><div class="tool-tabs" style="margin-top:20px"><button class="active" id="simpleMode">Educational view</button><button id="distanceMode">Distance view</button></div><div class="smallnote" id="modeNote">Planet sizes and orbital spacing are not to scale in this simplified illustration.</div></div></div><div class="warning" style="margin-top:20px">Moon counts can change as new small moons are confirmed. Figures shown here are a dated snapshot and should be checked against NASA/JPL databases before treating them as current.</div></div></section>
+<section class="section" id="deep-space"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">03 / Beyond the planets</div><h2>Into the <em class="serif">deep unknown.</em></h2><p>Extreme environments, stellar remnants and immense structures reveal how the universe works. Some images are artist impressions; labels distinguish concepts from observations.</p></div><div class="cards">
+<article class="card reveal"><span class="num">STELLAR REMNANT</span><h3>Black holes</h3><p>Regions where gravity is so strong that nothing inside the event horizon can escape.</p><div class="detail">We infer black holes from stellar orbits, hot accretion disks, gravitational waves and horizon-scale imaging. The bright ring in famous images is emission from hot material and lensed light, not the hole itself.</div><button class="learn">Learn more +</button></article>
+<article class="card reveal"><span class="num">ULTRA-DENSE</span><h3>Neutron stars</h3><p>Collapsed stellar cores with extraordinary density and powerful magnetic fields.</p><div class="detail">A neutron star can pack more than the Sun's mass into a sphere roughly city-sized. Some are observed as pulsars, emitting regular pulses as they rotate.</div><button class="learn">Learn more +</button></article>
+<article class="card reveal"><span class="num">STELLAR FINALE</span><h3>Supernovae</h3><p>Explosive stellar events that forge and distribute many heavy elements.</p><div class="detail">Core-collapse supernovae occur when certain massive stars' cores collapse. Type Ia supernovae involve thermonuclear disruption of a white dwarf system.</div><button class="learn">Learn more +</button></article>
+<article class="card reveal"><span class="num">STAR-FORMING CLOUD</span><h3>Nebulae</h3><p>Vast clouds of gas and dust where stars are born or where stars leave material behind.</p><div class="detail">Emission nebulae glow when gas is energized; reflection nebulae scatter starlight; dark nebulae block background light. Colours in processed images may map different wavelengths.</div><button class="learn">Learn more +</button></article>
+<article class="card reveal"><span class="num">GALACTIC STRUCTURE</span><h3>Spiral & elliptical galaxies</h3><p>Galaxies come in varied shapes, from star-forming disks to smooth elliptical systems.</p><div class="detail">Spiral galaxies have disks and arms; elliptical galaxies are generally smoother and often contain older stellar populations. Both can contain dark matter and central supermassive black holes.</div><button class="learn">Learn more +</button></article>
+<article class="card reveal"><span class="num">DISTANT WORLDS</span><h3>Exoplanets</h3><p>Planets orbiting stars beyond our Sun, discovered by several complementary methods.</p><div class="detail">Transit observations measure a dip in starlight; radial velocity detects a star's wobble. An atmosphere or habitable-zone location alone does not establish that a planet hosts life.</div><button class="learn">Learn more +</button></article>
+<article class="card reveal"><span class="num">POWERFUL BEACONS</span><h3>Quasars & pulsars</h3><p>Quasars are brilliant active galactic nuclei; pulsars are rotating compact stars.</p><div class="detail">Quasars are powered by accretion onto supermassive black holes. Pulsars produce lighthouse-like beams that sweep across our line of sight.</div><button class="learn">Learn more +</button></article>
+<article class="card reveal"><span class="num">SMALL BODIES</span><h3>Comets, asteroids & meteors</h3><p>Ancient leftovers from Solar System formation, with very different compositions.</p><div class="detail">Comets are rich in volatile ices and can form comae and tails near the Sun. Asteroids are mostly rocky or metallic. A meteor is the streak of light from a meteoroid entering an atmosphere.</div><button class="learn">Learn more +</button></article>
+<article class="card reveal"><span class="num">STELLAR GROUPS</span><h3>Star clusters</h3><p>Groups of stars born together or bound by their mutual gravity.</p><div class="detail">Open clusters are loosely bound and often young; globular clusters are dense, ancient stellar systems that orbit galactic halos.</div><button class="learn">Learn more +</button></article>
+</div></div></section>
+<section class="section" id="stars-life"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">04 / Stellar evolution</div><h2>Every star has<br><em class="serif">a story.</em></h2><p>A star's mass largely determines how it evolves. Choose a stage to follow a simplified stellar life cycle.</p></div><div class="two-col"><div class="visual-orbit reveal" style="min-height:330px"><div id="starVisual" style="width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#e4b67a 35%,#8e4c37 72%);box-shadow:0 0 70px #e5a86b88;animation:float 5s ease-in-out infinite"></div><div class="smallnote" style="position:absolute;bottom:14px">CONCEPTUAL ILLUSTRATION</div></div><div class="reveal"><div class="planet-tabs" id="lifeTabs"></div><h3 id="lifeTitle" style="font:32px var(--serif)">Nebula</h3><p class="muted" id="lifeText">A cold, dense region of gas and dust begins to collapse under gravity. Fragments can become stellar nurseries.</p><div class="callout" id="lifeNote">Stars form inside molecular clouds; not every cloud fragment becomes a star.</div></div></div></div></section>
+<section class="section" id="missions"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">05 / A brief cosmic history</div><h2>Our place in <em class="serif">time.</em></h2><p>From the early universe to instruments orbiting Earth, each milestone has expanded our view.</p></div><div class="timeline reveal">
+<div class="event"><time>13.8 billion years ago</time><div><h3>Early universe / Big Bang</h3><p>The universe begins expanding from a hot, dense state.</p></div></div>
+<div class="event"><time>~100–200 million years after</time><div><h3>First stars ignite</h3><p>The first generations of stars form from primordial gas; exact timing remains an active research topic.</p></div></div>
+<div class="event"><time>Billions of years ago</time><div><h3>Galaxies grow</h3><p>Small structures merge and evolve into the galaxies we observe today.</p></div></div>
+<div class="event"><time>4.6 billion years ago</time><div><h3>Solar System forms</h3><p>The Sun and planets form from a collapsing cloud and its surrounding disk.</p></div></div>
+<div class="event"><time>4.54 billion years ago</time><div><h3>Earth forms</h3><p>Our planet takes shape through accretion and early planetary evolution.</p></div></div>
+<div class="event"><time>1609–1610</time><div><h3>Galileo's telescope observations</h3><p>Observations of Jupiter's moons, Venus's phases and the Moon transformed astronomy.</p></div></div>
+<div class="event"><time>1957</time><div><h3>Sputnik 1</h3><p>The first artificial satellite begins the space age.</p></div></div>
+<div class="event"><time>1969</time><div><h3>Apollo 11</h3><p>Humans first walk on the Moon.</p></div></div>
+<div class="event"><time>1990</time><div><h3>Hubble Space Telescope</h3><p>Hubble begins observations from low Earth orbit.</p></div></div>
+<div class="event"><time>2021–2022</time><div><h3>James Webb Space Telescope</h3><p>JWST launches in 2021; its first full-colour science images are released in 2022.</p></div></div>
+<div class="event"><time>Today & beyond</time><div><h3>Modern exploration</h3><p>Robotic missions, space telescopes and international programmes continue to explore.</p></div></div>
+</div><div class="cards" style="margin-top:35px">
+<article class="card reveal"><span class="num">AGENCY</span><h3>NASA</h3><p>United States civil space agency; leads science, human exploration and aeronautics programmes.</p></article>
+<article class="card reveal"><span class="num">AGENCY</span><h3>ISRO</h3><p>India's space agency, with missions including Chandrayaan, Mangalyaan and Aditya-L1.</p></article>
+<article class="card reveal"><span class="num">AGENCY</span><h3>ESA</h3><p>European Space Agency; international cooperation in Earth observation, science and exploration.</p></article>
+<article class="card reveal"><span class="num">MISSIONS</span><h3>Voyager 1 & 2</h3><p>Robotic probes exploring the outer Solar System and interstellar space.</p></article>
+<article class="card reveal"><span class="num">MISSIONS</span><h3>Mars rovers</h3><p>Robotic laboratories investigate Martian geology, climate and past habitability.</p></article>
+<article class="card reveal"><span class="num">ORBITAL HOME</span><h3>International Space Station</h3><p>A multinational laboratory in low Earth orbit supporting long-duration research.</p></article>
+</div></div></section>
+<section class="section" id="tools" style="background:linear-gradient(180deg,transparent,#0a1422 45%,transparent)"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">06 / Observatory instruments</div><h2>Explore the numbers.<br><em class="serif">Understand the sky.</em></h2><p>Small interactive tools for building intuition. Values are educational approximations, not precision ephemerides.</p></div><div class="toolbox reveal"><div class="tool-tabs"><button class="active" data-tool="light">Light-year explorer</button><button data-tool="compare">Planet comparison</button><button data-tool="moon">Moon phase</button><button data-tool="colour">Star colour</button><button data-tool="glossary">Glossary</button></div><div class="tool-content" id="toolContent"></div></div></div></section>
+<section class="section" id="discover">
+ <div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">06 / Cosmic field guide</div><h2>Curiosity has<br><em class="serif">no horizon.</em></h2><p>Search a compact astronomy field guide or generate a random fact. Entries are educational summaries; the search works locally without an external service.</p></div>
+  <div class="discover-panel reveal">
+   <label for="astroSearch">SEARCH THE UNIVERSE</label>
+   <div class="discover-search"><input id="astroSearch" type="search" placeholder="Try “exoplanet”, “Hubble”, “constellation”…" autocomplete="off"><button class="btn primary" id="astroSearchClear" type="button">Clear</button></div>
+   <div class="discover-results" id="astroResults" aria-live="polite"></div>
+   <div class="fact-box"><div><div class="eyebrow">A LITTLE COSMIC WONDER</div><p id="factText">A day on Venus is longer than its year.</p></div><button class="btn" id="newFact" type="button">Another fact ↻</button></div>
+  </div>
+ </div>
+</section>
+<section class="section" id="telescope"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">07 / The CELESTIAL experience</div><h2>Look closer.<br><em class="serif">Feel the universe.</em></h2><p>A guided introduction to the night sky through an 8-inch telescope. Every session is shaped by the sky, the season and the observing conditions.</p></div><div class="two-col"><div class="reveal"><div class="eyebrow">Your window to the night</div><h3 class="serif" style="font-size:34px">Eight inches of possibility.</h3><p class="muted">A telescope gathers light and uses optics to form a magnified view. An 8-inch (203 mm) aperture can collect substantially more light than the unaided eye, making many lunar, planetary and deep-sky targets rewarding under suitable conditions.</p><p class="muted">Depending on location, season, weather, light pollution and atmospheric steadiness, visitors may observe the Moon's craters, bright planets, star clusters, double stars and selected nebulae or galaxies.</p><div class="callout">The view through an eyepiece is usually subtler and less colourful than long-exposure astrophotography. That is part of the magic: you are seeing real light arriving from space.</div></div><div class="visual-orbit reveal" style="min-height:390px;background:radial-gradient(ellipse at 55% 40%,#283c58,#0a1321 65%)"><div style="width:110px;height:260px;border-radius:55px 55px 18px 18px;background:linear-gradient(90deg,#121a26,#65768b 25%,#202c3d 55%,#080e18);transform:rotate(18deg);box-shadow:20px 25px 35px #0008;position:relative"><div style="position:absolute;top:-15px;left:20px;width:70px;height:25px;border-radius:50%;background:#9bb4cf"></div><div style="position:absolute;bottom:40px;left:-32px;width:165px;height:12px;background:#34465b;transform:rotate(-18deg)"></div></div><div class="smallnote" style="position:absolute;bottom:14px">TELESCOPE VISUAL · REPLACE WITH YOUR OWN PHOTO</div></div></div><div class="cards" style="margin-top:20px"><article class="card reveal"><span class="num">01 / APERTURE</span><h3>Gather more light</h3><p>Larger aperture collects more light and can resolve finer detail when seeing conditions allow.</p></article><article class="card reveal"><span class="num">02 / DARK SKIES</span><h3>Let night be dark</h3><p>Less artificial light improves contrast, especially for faint deep-sky objects.</p></article><article class="card reveal"><span class="num">03 / FIRST VISIT</span><h3>Take your time</h3><p>Allow your eyes to adapt, use averted vision for faint targets and ask questions.</p></article></div><div class="warning" style="margin-top:18px"><strong>Solar safety:</strong> Never look at the Sun through a telescope, finder scope or binoculars without a properly certified, securely fitted full-aperture solar filter designed for that instrument and expert supervision. Ordinary sunglasses or improvised filters are not safe. Do not use a solar filter on the eyepiece end.</div></div></section>
+<section class="section" id="gallery"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">08 / Visual archive</div><h2>Fragments of the <em class="serif">infinite.</em></h2><p>Live image search from NASA's public Image and Video Library. Image records retain their NASA title and source attribution where returned. Click an image to enlarge it.</p></div><div class="gallery" id="galleryGrid"><div class="shot" data-label="Moon"><div class="smallnote" style="padding:30px">Loading NASA imagery…</div></div><div class="shot" data-label="Saturn"></div><div class="shot" data-label="Nebula"></div><div class="shot" data-label="Jupiter"></div><div class="shot" data-label="Milky Way"></div><div class="shot" data-label="Galaxy"></div><div class="shot" data-label="Night sky"></div></div><p class="smallnote" id="galleryCredit" style="margin-top:15px">NASA Image and Video Library · Images are supplied by their respective credited providers.</p></div></section>
+<section class="section" id="pricing"><div class="wrap"><div class="section-head reveal"><div class="eyebrow">09 / Join the journey</div><h2>Your night under the <em class="serif">stars.</em></h2><p>Choose a starting point and send an enquiry. Session details and membership inclusions will be confirmed directly before booking.</p></div><div class="pricing"><article class="pricecard reveal"><div class="eyebrow">A single experience</div><h3 class="serif" style="font-size:27px">Single Night</h3><div class="price">₹1,299 <small>/ night</small></div><ul><li>Price supplied by CELESTIAL</li><li>Session details confirmed on enquiry</li></ul><a class="btn" href="#contact" data-plan="Single Night">Enquire about this</a></article><article class="pricecard featured reveal"><div class="eyebrow">Extended access</div><h3 class="serif" style="font-size:27px">7-Day Membership</h3><div class="price">₹4,999 <small>/ membership</small></div><ul><li>Price supplied by CELESTIAL</li><li>Inclusions and usage terms to be confirmed</li></ul><a class="btn primary" href="#contact" data-plan="7-Day Membership">Enquire about membership</a></article></div><p class="smallnote" style="margin-top:16px">No visit count, session duration or membership benefit is implied by these prices. Confirm all details before accepting payment.</p></div></section>
+<section class="section inquiry-section" id="contact">
+ <div class="wrap">
+  <div class="section-head reveal">
+   <div class="eyebrow">10 / Get in touch</div>
+   <h2>Make room for <em class="serif">wonder.</em></h2>
+   <p>Have a question about the CELESTIAL astronomy experience? Send a message and let’s plan your next journey beneath the stars.</p>
+  </div>
+  <div class="inquiry-layout">
+   <div class="inquiry-card inquiry-info reveal">
+    <div class="inquiry-orb" aria-hidden="true"><span>✦</span></div>
+    <div class="eyebrow">YOUR SIGNAL TO THE STARS</div>
+    <h3>Let’s talk<br><em class="serif">cosmos.</em></h3>
+    <p class="muted">For stargazing sessions, telescope experiences, collaborations or general questions, reach out directly.</p>
+    <div class="email-label">DIRECT EMAIL</div>
+    <a class="inquiry-email" href="mailto:darshbhavsar2008@gmail.com?subject=Inquiry%20%E2%80%93%20CELESTIAL%20Astronomy%20Experience">darshbhavsar2008@gmail.com</a>
+    <div class="inquiry-actions">
+     <a class="btn inquiry-mail-link" href="mailto:darshbhavsar2008@gmail.com?subject=Inquiry%20%E2%80%93%20CELESTIAL%20Astronomy%20Experience"> <span>✉</span> Email directly</a>
+     <button class="btn copy-email" id="copyEmail" type="button"><span>▢</span> Copy email</button>
+    </div>
+    <p class="copy-status" id="copyStatus" aria-live="polite"></p>
+    <div class="inquiry-footnote"><span class="status-dot"></span> Usually happy to hear from curious minds.</div>
+   </div>
+   <form class="inquiry-card inquiry-form reveal" id="bookingForm">
+    <div class="form-heading"><div><div class="eyebrow">TRANSMIT A MESSAGE</div><h3>Send an inquiry</h3></div><span class="form-index">01 — 05</span></div>
+    <div class="inquiry-fields">
+     <div class="field"><label for="name">Full name <span>*</span></label><input id="name" name="name" autocomplete="name" required placeholder="Enter your full name"></div>
+     <div class="field"><label for="email">Email address <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+     <div class="field"><label for="phone">Phone number <small>(optional)</small></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91"></div>
+     <div class="field"><label for="plan">Inquiry type <span>*</span></label><select id="plan" name="plan" required><option value="" selected disabled>Select an inquiry type</option><option>Stargazing session</option><option>Single Night — ₹1,299</option><option>7-Day Membership — ₹4,999</option><option>Telescope / astronomy question</option><option>Collaboration</option><option>General enquiry</option></select></div>
+     <div class="field field-wide"><label for="message">Your message <span>*</span></label><textarea id="message" name="message" required placeholder="Tell us what you would like to explore…"></textarea></div>
+    </div>
+    <button class="btn primary send-inquiry" type="submit"><span>Send Inquiry</span><span class="send-arrow">↗</span></button>
+    <p class="smallnote form-note" id="formStatus">This opens your default email application with a pre-filled message. You will need to review and send it there.</p>
+   </form>
+  </div>
+ </div>
+</section>
+<section class="section" style="padding-top:0"><div class="wrap"><div class="section-head"><div class="eyebrow">A few things to know</div><h2 style="font-size:clamp(2rem,4vw,3rem)">Before you <em class="serif">look up.</em></h2></div><div class="faq"><details><summary>Will I see Saturn, Jupiter or a galaxy every night?</summary><p>Not necessarily. Visibility depends on the date, time, season, target altitude, weather, atmospheric steadiness, light pollution and equipment. A target may be below the horizon or too close to the Sun.</p></details><details><summary>Does an 8-inch telescope show colourful nebulae like photographs?</summary><p>Usually not. Long-exposure cameras collect light for minutes or hours and apply image processing. Visual observing is often monochrome or subtle, but offers a direct view through the eyepiece.</p></details><details><summary>What happens if the weather is cloudy?</summary><p>Clouds and haze can prevent useful observing. Confirm rescheduling and cancellation terms with CELESTIAL before booking; none are assumed here.</p></details><details><summary>Can I look at the Sun through the telescope?</summary><p>Only with properly certified, correctly installed solar equipment designed for the telescope and expert supervision. Never improvise a filter or look through an unfiltered telescope.</p></details></div></div></section>
+</main>
+
+<section class="section" id="3d-universe">
+ <div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">11 / Enter the simulation</div><h2>Travel through a<br><em class="serif">living universe.</em></h2><p>Explore a real-time 3D scene with procedural stars, layered nebula clouds, a glowing galactic core and a miniature planetary system. Drag to orbit, scroll to zoom, and select a destination.</p></div>
+  <div class="scene-shell reveal" id="cosmosShell">
+   <div class="scene-loading" id="cosmosLoading">INITIALISING COSMIC ENGINE…</div>
+   <canvas id="cosmos3d" aria-label="Interactive real-time 3D cosmic scene"></canvas>
+   <div class="scene-overlay"><div><div class="scene-title">THE COSMIC EXPANSE</div><div class="scene-sub">A procedural 3D interpretation of interstellar space. Nebula forms and star placements are artistic visualizations, not a map of measured cosmic structures.</div></div><div class="scene-controls"><button class="active" data-cosmos="nebula">Nebula</button><button data-cosmos="galaxy">Galaxy</button><button data-cosmos="solar">Planetary system</button><button data-cosmos="reset">Reset view</button></div><div class="scene-caption">REAL-TIME 3D · INTERACTIVE CAMERA · PROCEDURAL VISUALIZATION</div></div>
+  </div>
+  <div class="cards" style="margin-top:18px">
+   <article class="card reveal"><span class="num">INTERACTION 01</span><h3>Orbit the scene</h3><p>Drag with a mouse or finger to rotate the camera around the cosmic environment.</p></article>
+   <article class="card reveal"><span class="num">INTERACTION 02</span><h3>Move through depth</h3><p>Use the scroll wheel or pinch gesture to move closer to the scene and reveal its layered structure.</p></article>
+   <article class="card reveal"><span class="num">INTERACTION 03</span><h3>Change destinations</h3><p>Switch between a nebula cloud, a spiral-galaxy-inspired structure and a planetary system.</p></article>
+  </div>
+ </div>
+</section>
+<section class="section" id="3d-planets">
+ <div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">12 / Worlds in three dimensions</div><h2>Worlds you can<br><em class="serif">move around.</em></h2><p>Explore an interactive 3D planetary display. These stylized spheres demonstrate shape, rotation, lighting and relative character; they are not precision surface maps or a scale model.</p></div>
+  <div class="scene-shell reveal" id="planet3dShell"><div class="scene-loading" id="planet3dLoading">BUILDING PLANETARY DISPLAY…</div><canvas id="planet3d" aria-label="Interactive 3D planet model"></canvas><div class="scene-overlay"><div><div class="scene-title" id="planet3dTitle">EARTH</div><div class="scene-sub" id="planet3dSub">A world of oceans, continents, clouds and a thin atmosphere.</div></div><div class="scene-controls" id="planet3dButtons"></div><div class="scene-caption">ROTATING 3D MODEL · DRAG TO ORBIT · SCROLL TO ZOOM</div></div></div>
+ </div>
+</section>
+<section class="section" id="3d-telescope">
+ <div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">13 / The instrument</div><h2>An observatory<br><em class="serif">in your hands.</em></h2><p>Explore a 3D concept model of an 8-inch Newtonian reflector telescope on an equatorial-style mount. The model is illustrative; replace it with photographs and the exact specifications of your own instrument.</p></div>
+  <div class="model-grid">
+   <div class="scene-shell reveal" id="scopeShell"><div class="scene-loading" id="scopeLoading">ASSEMBLING OPTICAL SYSTEM…</div><canvas id="scope3d" aria-label="Interactive 3D reflector telescope model"></canvas><div class="scene-overlay"><div><div class="scene-title">8-INCH REFLECTOR</div><div class="scene-sub">Aperture: 203 mm · Newtonian optical layout · Concept model</div></div><div class="scene-controls"><button id="scopeRotate" class="active">Auto rotate: on</button><button id="scopeExplode">Exploded view</button><button id="scopeReset">Reset</button></div><div class="scene-caption">3D TELESCOPE MODEL · DRAG TO INSPECT</div></div></div>
+   <div class="model-info reveal"><div class="eyebrow">Anatomy of a telescope</div><h3>Light becomes a view.</h3><p class="muted">A reflector telescope uses a primary mirror to collect incoming light and a secondary mirror to direct it toward the eyepiece. The aperture controls light-gathering ability and contributes to resolving power.</p><div class="spec-list"><div><span>Optical design</span><b>Newtonian reflector</b></div><div><span>Illustrated aperture</span><b>8 in / 203 mm</b></div><div><span>Primary optic</span><b>Concave mirror</b></div><div><span>Secondary optic</span><b>Flat diagonal mirror</b></div><div><span>Mount concept</span><b>Equatorial-style</b></div><div><span>Tripod</span><b>Adjustable legs</b></div></div><div class="rule"></div><div class="callout">Aperture is not the same as magnification. Useful magnification depends on optical quality, atmospheric seeing, target brightness and telescope setup.</div></div>
+  </div>
+  <div class="cards" style="margin-top:18px">
+   <article class="card reveal"><span class="num">OPTICS</span><h3>Primary mirror</h3><p>The large concave mirror gathers light and brings it toward a focus near the front of the tube.</p></article>
+   <article class="card reveal"><span class="num">FOCUS</span><h3>Secondary mirror & focuser</h3><p>A small diagonal mirror redirects the converging light sideways to the eyepiece.</p></article>
+   <article class="card reveal"><span class="num">STABILITY</span><h3>Mount & tripod</h3><p>A steady mount helps keep the target in view. Accurate alignment improves tracking and comfort.</p></article>
+  </div>
+ </div>
+</section>
+<section class="section" id="cosmic-library">
+ <div class="wrap">
+  <div class="section-head reveal"><div class="eyebrow">14 / The extended field guide</div><h2>More to discover.<br><em class="serif">More to question.</em></h2><p>A deeper field guide to the objects, forces and techniques that shape modern astronomy.</p></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">01</div><div><h3>How stars are measured</h3><p>Astronomers infer stellar distance, temperature, luminosity, mass and composition using parallax, spectra, brightness measurements and stellar models. No single measurement tells the whole story.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">02</div><div><h3>Spectroscopy: reading starlight</h3><p>When light is spread into a spectrum, dark and bright lines reveal chemical elements, temperature, motion and physical conditions. Starlight is a remote laboratory.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">03</div><div><h3>Gravitational lensing</h3><p>Mass bends the path of light. A massive galaxy cluster can magnify, distort or multiply the images of more distant galaxies, allowing astronomers to study otherwise faint objects and map mass.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">04</div><div><h3>Gravitational waves</h3><p>Accelerating massive objects, such as merging black holes or neutron stars, produce ripples in space-time. Detectors on Earth measure extraordinarily tiny changes in distance as these waves pass.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">05</div><div><h3>How exoplanets are found</h3><p>Transit photometry measures periodic dips in starlight, radial velocity measures a star's motion, and direct imaging attempts to separate a planet's faint light from its host star. Each method has different biases.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">06</div><div><h3>What makes a sky dark?</h3><p>Artificial skyglow, haze, humidity and the Moon can brighten the background sky. Shielded lighting, distance from cities and allowing dark adaptation can improve visual observing.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">07</div><div><h3>Atmospheric seeing</h3><p>Moving air cells distort incoming wavefronts and make stars twinkle. A planet may look sharper when it is high above the horizon and the atmosphere is stable.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">08</div><div><h3>Why space images have colour</h3><p>Some astronomical images use visible light; others combine infrared, ultraviolet, radio or X-ray data. False colour can encode wavelengths outside human vision and must be explained in the image caption.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">09</div><div><h3>Are we alone?</h3><p>No life beyond Earth has been confirmed. Scientists investigate potentially habitable environments, biosignature candidates and the chemistry of planetary atmospheres, while carefully testing alternative explanations.</p></div></div>
+  <div class="cosmic-chapter reveal"><div class="chapter-no">10</div><div><h3>The future of observatories</h3><p>Next-generation ground and space observatories will study exoplanet atmospheres, early galaxies, dark matter, transient events and the changing universe through multiple wavelengths.</p></div></div>
+ </div>
+</section>
+
+<footer><div class="wrap"><div class="footgrid"><div><a class="brand" href="#home">CELE<span>S</span>TIAL</a><p class="muted" style="max-width:310px;margin-top:18px">Beyond the Ordinary Sky.<br>A digital observatory for curious minds and stargazers.</p></div><div><div class="eyebrow">Explore</div><div class="footlinks"><a href="#universe">The universe</a><a href="#solar">Solar system</a><a href="#deep-space">Deep space</a><a href="#3d-universe">3D universe</a><a href="#3d-telescope">3D telescope</a><a href="#missions">Missions</a></div></div><div><div class="eyebrow">Connect</div><div class="footlinks"><a href="#telescope">Telescope experience</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a><a href="#" onclick="return false">Instagram — add link</a></div></div></div><div class="copyright"><span>© <span id="year"></span> CELESTIAL. BEYOND THE ORDINARY SKY.</span><span>MADE FOR THE CURIOUS · LOOK UP</span></div></div></footer>
+<div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Expanded astronomy image"><button id="closeModal" aria-label="Close image">Close ✕</button><div><img id="modalImg" alt=""><p id="modalCaption" class="smallnote" style="text-align:center"></p></div></div>
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+$('#year').textContent=new Date().getFullYear();
+const topbar=$('#topbar'),progress=$('#progress');function scrollUI(){let y=scrollY,max=document.documentElement.scrollHeight-innerHeight;topbar.classList.toggle('scrolled',y>30);progress.style.width=(max?y/max*100:0)+'%'}addEventListener('scroll',scrollUI,{passive:true});scrollUI();
+$('#menu').addEventListener('click',()=>$('#navlinks').classList.toggle('show'));$$('#navlinks a').forEach(a=>a.addEventListener('click',()=>$('#navlinks').classList.remove('show')));
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduced&&'IntersectionObserver'in window){let io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el))}else $$('.reveal').forEach(el=>el.classList.add('visible'));
+$$('.card .learn').forEach(b=>b.addEventListener('click',()=>{let c=b.closest('.card');c.classList.toggle('open');b.textContent=c.classList.contains('open')?'Close −':'Learn more +'}));
+/* Low-cost starfield: fewer particles on small screens; disabled for reduced motion. */
+const canvas=$('#stars'),ctx=canvas.getContext('2d');let stars=[],raf=0;function sizeStars(){let dpr=Math.min(devicePixelRatio||1,1.5);canvas.width=canvas.clientWidth*dpr;canvas.height=canvas.clientHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);let n=innerWidth<650?90:210;stars=Array.from({length:n},()=>({x:Math.random()*canvas.clientWidth,y:Math.random()*canvas.clientHeight,r:Math.random()*1.2+.25,a:Math.random(),s:Math.random()*.008+.002}))}function drawStars(){ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<.15)s.s*=-1;ctx.globalAlpha=s.a;ctx.fillStyle='#dcecff';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=1;if(!reduced)raf=requestAnimationFrame(drawStars)}if(ctx){sizeStars();drawStars();addEventListener('resize',()=>{cancelAnimationFrame(raf);sizeStars();drawStars()})}
+/* Planet facts: approximate reference values; moon counts are deliberately labelled as a dated snapshot. */
+const planets=[
+{name:'Mercury',desc:'The smallest planet, racing around the Sun in just 88 Earth days.',dist:'0.39 AU · 58 million km',diam:'4,879 km',year:'88 Earth days',temp:'−180 to 430°C',moons:'0',fact:'Its heavily cratered surface preserves a record of ancient impacts.'},
+{name:'Venus',desc:'A rocky world wrapped in a dense carbon-dioxide atmosphere.',dist:'0.72 AU · 108 million km',diam:'12,104 km',year:'225 Earth days',temp:'~465°C average',moons:'0',fact:'A runaway greenhouse effect makes Venus hotter than Mercury.'},
+{name:'Earth',desc:'Our ocean-covered home world, the only world known to host life.',dist:'1 AU · 150 million km',diam:'12,742 km',year:'365.25 days',temp:'~15°C global mean',moons:'1',fact:'Liquid water is stable at the surface, and the atmosphere protects life.'},
+{name:'Mars',desc:'A cold desert world with giant volcanoes and evidence of ancient water.',dist:'1.52 AU · 228 million km',diam:'6,779 km',year:'687 Earth days',temp:'~−65°C mean',moons:'2',fact:'Olympus Mons is the largest known volcano in the Solar System.'},
+{name:'Jupiter',desc:'The largest planet: a gas giant with powerful storms and a vast moon system.',dist:'5.20 AU · 778 million km',diam:'139,820 km',year:'11.86 Earth years',temp:'~−110°C cloud tops',moons:'95 (NASA snapshot, 2024)',fact:'Its Great Red Spot is a long-lived storm; its moon Europa has a subsurface ocean.'},
+{name:'Saturn',desc:'A gas giant famous for its bright rings made mostly of icy particles.',dist:'9.58 AU · 1.43 billion km',diam:'116,460 km',year:'29.45 Earth years',temp:'~−140°C cloud tops',moons:'146 (NASA snapshot, 2024)',fact:'Saturn is less dense than water on average, though no ocean could contain it.'},
+{name:'Uranus',desc:'An ice giant that rotates on its side, giving it extreme seasons.',dist:'19.2 AU · 2.87 billion km',diam:'50,724 km',year:'84 Earth years',temp:'~−195°C',moons:'28 (NASA snapshot, 2024)',fact:'Its unusual axial tilt may be the result of an ancient giant impact.'},
+{name:'Neptune',desc:'A distant ice giant with supersonic winds and a deep blue atmosphere.',dist:'30.1 AU · 4.5 billion km',diam:'49,244 km',year:'164.8 Earth years',temp:'~−200°C',moons:'16 (NASA snapshot, 2024)',fact:'Neptune was predicted mathematically before it was observed in 1846.'}
+];let selected=2;const tabs=$('#planetTabs');planets.forEach((p,i)=>{let b=document.createElement('button');b.textContent=p.name;b.addEventListener('click',()=>showPlanet(i));tabs.append(b)});function showPlanet(i){selected=i;[...tabs.children].forEach((b,j)=>b.classList.toggle('active',j===i));let p=planets[i];$('#planetName').textContent=p.name;$('#planetDesc').textContent=p.desc;$('#planetData').innerHTML=[['Mean Sun distance',p.dist],['Diameter',p.diam],['Orbital period',p.year],['Temperature',p.temp],['Known moons',p.moons]].map(x=>`<div class="datum"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');$('#planetFact').textContent='DID YOU KNOW · '+p.fact}showPlanet(2);
+$('#simpleMode').onclick=()=>{$('#simpleMode').classList.add('active');$('#distanceMode').classList.remove('active');$('#modeNote').textContent='Planet sizes and orbital spacing are not to scale in this simplified illustration.';$('#orbitView').style.background='radial-gradient(circle,#172945 0,#0b1526 45%,#070d18 75%)';$('#orbitView').style.transform='none'};
+$('#distanceMode').onclick=()=>{$('#distanceMode').classList.add('active');$('#simpleMode').classList.remove('active');$('#modeNote').textContent='Distance mode uses a logarithmic visual spacing so all eight orbits fit. It is not a linear scale.';$('#orbitView').style.background='radial-gradient(ellipse,#233a56,#080e19 72%)';$('#orbitView').style.transform='perspective(700px) rotateX(8deg)'};
+/* Stellar evolution interactive path */
+const stages=[['Nebula','A cold, dense region of gas and dust begins to collapse under gravity. Fragments can become stellar nurseries.','Stars form inside molecular clouds; not every cloud fragment becomes a star.'],['Protostar','A collapsing core heats up as gravity releases energy. It is not yet powered by sustained hydrogen fusion.','The young object can gather material from a surrounding disk.'],['Main sequence','The star spends most of its life fusing hydrogen into helium in its core.','Our Sun is currently a main-sequence star.'],['Red giant / supergiant','When core hydrogen runs low, the star expands and its outer layers change dramatically.','The exact path depends strongly on the star’s initial mass.'],['Final stages','Lower-mass stars shed outer layers; massive stars may undergo core collapse.','A star’s mass determines whether it ends as a white dwarf, neutron star or black hole.'],['Remnant','A white dwarf slowly cools; a neutron star is an ultra-dense core; a black hole has an event horizon.','Not every massive star produces a black hole; outcomes depend on mass loss and core physics.']];let stage=0;stages.forEach((s,i)=>{let b=document.createElement('button');b.textContent=(i+1)+'. '+s[0];b.addEventListener('click',()=>showStage(i));$('#lifeTabs').append(b)});function showStage(i){stage=i;[...$('#lifeTabs').children].forEach((b,j)=>b.classList.toggle('active',j===i));$('#lifeTitle').textContent=stages[i][0];$('#lifeText').textContent=stages[i][1];$('#lifeNote').textContent=stages[i][2];let el=$('#starVisual');let styles=[['#b6c7d7','#53677f'],['#fff0c6','#d28b59'],['#fff','#e4b56b'],['#fff2d0','#b84e36'],['#d9eaff','#7d9cc8'],['#e4efff','#637a9c']];el.style.background=`radial-gradient(circle at 35% 30%,${styles[i][0]},${styles[i][1]} 60%,#151d31)`;el.style.boxShadow=`0 0 ${70-i*7}px ${styles[i][1]}88`}showStage(0);
+/* Small educational tools */
+const toolContent=$('#toolContent');function renderTool(type){$$('[data-tool]').forEach(b=>b.classList.toggle('active',b.dataset.tool===type));if(type==='light'){toolContent.innerHTML='<p class="muted">How long does light take to cross a distance? Enter a distance in light-years.</p><label>Distance (light-years)</label><input id="ly" type="number" min="0" step="0.1" value="4.24"><div class="result" id="lyResult">4.24 years</div><p class="smallnote">In a vacuum, light travels one light-year per year. This is a simplified travel-time intuition, not a spacecraft travel estimate.</p>';$('#ly').oninput=e=>$('#lyResult').textContent=(Number(e.target.value)||0).toLocaleString(undefined,{maximumFractionDigits:3})+' years'}
+if(type==='compare'){toolContent.innerHTML='<p class="muted">Compare planetary diameters with Earth = 1.</p><label>Choose a planet</label><select id="cmp">'+planets.map(p=>`<option>${p.name}</option>`).join('')+'</select><div class="result" id="cmpResult"></div><p class="smallnote">Mean diameters rounded; values are approximate.</p>';let update=()=>{let p=planets.find(x=>x.name===$('#cmp').value),d=Number(p.diam.replace(/,/g,''));$('#cmpResult').textContent=(d/12742).toFixed(2)+' × Earth diameter'};$('#cmp').onchange=update;update()}
+if(type==='moon'){toolContent.innerHTML='<p class="muted">A simple idealized Moon-phase guide. Choose the approximate age since new Moon.</p><label>Moon age (days, 0–29.53)</label><input id="moonAge" type="range" min="0" max="29.53" step=".1" value="7.4"><div class="result" id="moonResult">First quarter</div><p class="smallnote">This is a conceptual phase cycle, not a live sky prediction for your location.</p>';let upd=()=>{let a=Number($('#moonAge').value),names=['New Moon','Waxing crescent','First quarter','Waxing gibbous','Full Moon','Waning gibbous','Last quarter','Waning crescent'];let ix=Math.min(7,Math.floor(a/29.53*8));$('#moonResult').textContent=names[ix]+' · day '+a.toFixed(1)};$('#moonAge').oninput=upd;upd()}
+if(type==='colour'){toolContent.innerHTML='<p class="muted">Star colour is related to surface temperature. Select a spectral class for an approximate guide.</p><label>Star class</label><select id="starClass"><option value="30000">O · Blue</option><option value="15000">B · Blue-white</option><option value="9000">A · White</option><option value="7000">F · Yellow-white</option><option value="5800" selected>G · Yellow</option><option value="4000">K · Orange</option><option value="3000">M · Red</option></select><div class="result" id="starTemp">~5,800 K</div><p class="smallnote">Approximate ranges vary within each spectral class. Colour is not a precise thermometer by eye.</p>';$('#starClass').onchange=()=>$('#starTemp').textContent='~'+Number($('#starClass').value).toLocaleString()+' K'}
+if(type==='glossary'){let terms=[['AU','Astronomical unit: the average Earth–Sun distance, about 149.6 million km.'],['Parsec','A distance of about 3.26 light-years, defined through stellar parallax.'],['Magnitude','A logarithmic scale used to describe apparent or intrinsic brightness.'],['Transit','A planet crossing in front of its star from our viewpoint.'],['Redshift','A shift of light toward longer wavelengths, often caused by cosmic expansion.'],['Zenith','The point in the sky directly overhead.']];toolContent.innerHTML='<p class="muted">A compact field guide to common astronomy terms.</p>'+terms.map(t=>`<details><summary>${t[0]}</summary><p>${t[1]}</p></details>`).join('')}}
+$$('[data-tool]').forEach(b=>b.addEventListener('click',()=>renderTool(b.dataset.tool)));renderTool('light');
+/* NASA public image library: query API returns image metadata and provider data. */
+async function loadNASA(){let queries=['Moon NASA','Saturn NASA Cassini','nebula NASA Hubble','Jupiter NASA Juno','Milky Way NASA','galaxy NASA Webb','night sky NASA'];let nodes=$$('#galleryGrid .shot');for(let i=0;i<queries.length;i++){try{let u='https://images-api.nasa.gov/search?q='+encodeURIComponent(queries[i])+'&media_type=image&page_size=8';let r=await fetch(u);if(!r.ok)throw Error('NASA image API unavailable');let j=await r.json();let items=j.collection.items||[];let chosen=items.find(x=>x.links&&x.links.some(l=>l.rel==='preview'))||items[0];if(!chosen)continue;let asset=chosen.links?.find(l=>l.rel==='preview')?.href;let data=chosen.data?.[0]||{};if(asset){nodes[i].innerHTML=`<img loading="lazy" src="${asset}" alt="${(data.title||queries[i]).replace(/"/g,'&quot;')}"><span class="smallnote" style="position:absolute;top:8px;left:9px;background:#030711aa;padding:4px 6px">${(data.center||'NASA').toUpperCase()}</span>`;nodes[i].dataset.credit=(data.title||'NASA image')+' · '+(data.center||'NASA');nodes[i].dataset.src=asset;nodes[i].dataset.alt=data.title||queries[i]}}catch(e){nodes[i].innerHTML='<div class="smallnote" style="padding:22px">NASA image feed unavailable<br>Try again when online</div>'}}}
+loadNASA();$('#galleryGrid').addEventListener('click',e=>{let s=e.target.closest('.shot');if(!s||!s.dataset.src)return;$('#modalImg').src=s.dataset.src;$('#modalImg').alt=s.dataset.alt||'';$('#modalCaption').textContent=s.dataset.credit||'NASA Image and Video Library';$('#imageModal').classList.add('show')});function closeModal(){$('#imageModal').classList.remove('show');$('#modalImg').src=''}$('#closeModal').onclick=closeModal;$('#imageModal').addEventListener('click',e=>{if(e.target===$('#imageModal'))closeModal()});addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+/* CELESTIAL inquiry: creates a pre-filled email; it never sends automatically. */
+const inquiryAddress='darshbhavsar2008@gmail.com';
+const inquirySubject='Inquiry – CELESTIAL Astronomy Experience';
+$$('[data-plan]').forEach(a=>a.addEventListener('click',()=>{
+ const plan=$('#plan');
+ if(plan){plan.value=a.dataset.plan==='Single Night'?'Single Night — ₹1,299':'7-Day Membership — ₹4,999'}
+}));
+$('#bookingForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const f=new FormData(e.currentTarget);
+ const body=[
+  'CELESTIAL — Beyond the Ordinary Sky',
+  '',
+  'Hello CELESTIAL,',
+  '',
+  'I would like to make an inquiry. My details are:',
+  '',
+  'Full name: '+(f.get('name')||''),
+  'Email address: '+(f.get('email')||''),
+  'Phone number: '+(f.get('phone')||'Not provided'),
+  'Inquiry type: '+(f.get('plan')||''),
+  '',
+  'Message:',
+  (f.get('message')||''),
+  '',
+  'Thank you.'
+ ].join('\\n');
+ const mailto='mailto:'+inquiryAddress+'?subject='+encodeURIComponent(inquirySubject)+'&body='+encodeURIComponent(body);
+ $('#formStatus').textContent='Opening your email application. Review the pre-filled message and press Send in your email app.';
+ window.location.href=mailto;
+});
+$('#copyEmail').addEventListener('click',async()=>{
+ const status=$('#copyStatus');
+ try{
+  if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(inquiryAddress);}
+  else{
+   const temp=document.createElement('textarea');temp.value=inquiryAddress;temp.setAttribute('readonly','');temp.style.position='fixed';temp.style.opacity='0';document.body.appendChild(temp);temp.select();
+   const copied=document.execCommand('copy');temp.remove();if(!copied)throw new Error('Copy unavailable');
+  }
+  status.textContent='Email address copied.';
+ }catch(err){status.textContent='Copy was blocked by this browser. Please select the email address above.'}
+});
+})();
+</script>
+
+
+<script>
+(()=> {
+ 'use strict';
+ const canvas=document.getElementById('cosmicBackground');
+ if(!canvas) return;
+ const ctx=canvas.getContext('2d',{alpha:true});
+ if(!ctx) return;
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let w=0,h=0,dpr=1,stars=[],dust=[],shooters=[],raf=0,last=0;
+ const rand=(a,b)=>a+Math.random()*(b-a);
+ function resize(){
+  dpr=Math.min(devicePixelRatio||1,innerWidth<700?1:1.5);w=innerWidth;h=innerHeight;
+  canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+  stars=Array.from({length:Math.min(innerWidth<650?150:330,Math.floor(w*h/4200))},()=>({x:rand(0,w),y:rand(0,h),r:rand(.35,1.55),a:rand(.18,.95),speed:rand(.15,.8),phase:rand(0,6.28),hue:rand(185,285)}));
+  dust=Array.from({length:innerWidth<650?34:75},()=>({x:rand(0,w),y:rand(0,h),r:rand(.5,2.1),vx:rand(-.13,.13),vy:rand(-.18,.18),a:rand(.12,.45)}));
+  shooters=[];
+ }
+ function nebula(t){
+  const blobs=[
+   [w*(.18+.07*Math.sin(t*.00009)),h*(.28+.08*Math.sin(t*.00013)),Math.max(w,h)*.62,'126,57,200',.17],
+   [w*(.78+.06*Math.cos(t*.00007)),h*(.48+.09*Math.cos(t*.00011)),Math.max(w,h)*.7,'32,82,190',.19],
+   [w*(.48+.09*Math.sin(t*.00006)),h*(.84+.05*Math.cos(t*.00008)),Math.max(w,h)*.56,'205,48,155',.105],
+   [w*(.88+.04*Math.sin(t*.00012)),h*(.08+.08*Math.cos(t*.00009)),Math.max(w,h)*.46,'24,180,205',.085]
+  ];
+  for(const [x,y,r,c,a] of blobs){let g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,`rgba(${c},${a})`);g.addColorStop(.38,`rgba(${c},${a*.42})`);g.addColorStop(1,`rgba(${c},0)`);ctx.fillStyle=g;ctx.fillRect(0,0,w,h)}
+  // A faint diagonal galactic dust lane.
+  ctx.save();ctx.translate(w*.52,h*.5);ctx.rotate(-.24+Math.sin(t*.00004)*.035);
+  let lane=ctx.createLinearGradient(-w*.7,0,w*.7,0);lane.addColorStop(0,'rgba(65,95,190,0)');lane.addColorStop(.5,'rgba(84,70,175,.07)');lane.addColorStop(1,'rgba(215,83,177,0)');
+  ctx.fillStyle=lane;ctx.fillRect(-w*.8,-h*.16,w*1.6,h*.32);ctx.restore();
+ }
+ function frame(now){
+  if(!document.hidden && now-last>25){
+   last=now;ctx.clearRect(0,0,w,h);
+   // Deep-space haze evolves independently of scroll position.
+   nebula(reduce?0:now);
+   for(const s of stars){if(!reduce){s.phase+=.012*s.speed;s.x+=Math.sin(now*.00005+s.phase)*.035;if(s.x<0)s.x=w;if(s.x>w)s.x=0}
+    let alpha=s.a*(.68+.32*Math.sin(s.phase));ctx.globalAlpha=alpha;ctx.fillStyle=s.hue>250?'#e4caff':s.hue>220?'#b6caff':'#c6f6ff';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();
+   }
+   ctx.globalAlpha=1;
+   for(const p of dust){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0}
+    ctx.globalAlpha=p.a;ctx.fillStyle='#9fdfff';ctx.shadowBlur=8;ctx.shadowColor='#8e7dff';ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+   }
+   ctx.globalAlpha=1;
+   if(!reduce&&shooters.length<2&&Math.random()<.012)shooters.push({x:rand(-w*.1,w*.75),y:rand(0,h*.55),vx:rand(7,12),vy:rand(2,4),life:0,max:rand(22,38)});
+   shooters=shooters.filter(q=>q.life<q.max);
+   for(const q of shooters){q.x+=q.vx;q.y+=q.vy;q.life++;let a=1-q.life/q.max,g=ctx.createLinearGradient(q.x-q.vx*7,q.y-q.vy*7,q.x,q.y);g.addColorStop(0,'rgba(135,183,255,0)');g.addColorStop(1,`rgba(218,241,255,${a*.9})`);ctx.strokeStyle=g;ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(q.x-q.vx*7,q.y-q.vy*7);ctx.lineTo(q.x,q.y);ctx.stroke()}
+   ctx.globalAlpha=1;
+  }
+  if(!reduce)raf=requestAnimationFrame(frame);
+ }
+ resize();frame(0);
+ addEventListener('resize',()=>{cancelAnimationFrame(raf);resize();if(!reduce)raf=requestAnimationFrame(frame);else frame(0)},{passive:true});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!reduce&&!raf)raf=requestAnimationFrame(frame)});
+})();
+</script>
+<script>
+(()=> {
+ const entries=[
+ ['Universe','Cosmology','The universe includes space-time, matter, energy and the physical laws that describe them. The observable universe is the region whose light has had time to reach us.'],
+ ['Observable universe','Cosmology','The observable universe has a radius of about 46.5 billion light-years today because space expanded while ancient light travelled.'],
+ ['Galaxy','Galaxies','A galaxy is a gravitationally bound system of stars, gas, dust, dark matter and other components.'],
+ ['Milky Way','Galaxies','Our home galaxy is a barred spiral containing the Sun in one of its outer disk regions.'],
+ ['Spiral galaxy','Galaxies','Spiral galaxies have flattened disks and winding arms; star formation is often active in gas-rich arms.'],
+ ['Elliptical galaxy','Galaxies','Elliptical galaxies range from nearly spherical to elongated and often have less cold gas than spiral galaxies.'],
+ ['Dwarf planet','Solar system','Dwarf planets orbit the Sun and are nearly round, but have not cleared their orbital neighbourhood. Pluto and Ceres are examples.'],
+ ['Moon','Solar system','A moon is a natural satellite orbiting a planet or another small Solar System body.'],
+ ['Black hole','Deep space','A black hole is a region bounded by an event horizon from which light cannot escape to distant observers.'],
+ ['Neutron star','Deep space','A neutron star is an extremely compact stellar remnant; some are observed as pulsars.'],
+ ['Supernova','Stellar evolution','A supernova is a powerful stellar explosion that can spread newly formed elements into space.'],
+ ['Nebula','Deep space','A nebula is a cloud of gas and dust; some are sites of star formation, while others contain material shed by dying stars.'],
+ ['Constellation','Observing','A constellation is a defined region of the sky. Its stars may be at very different distances from Earth.'],
+ ['Exoplanet','Planetary science','An exoplanet orbits a star beyond our Sun. Transits and radial-velocity measurements are two major discovery methods.'],
+ ['Hubble Space Telescope','Space telescopes','Hubble observes mainly ultraviolet, visible and near-infrared light from low Earth orbit.'],
+ ['James Webb Space Telescope','Space telescopes','JWST is a space observatory optimized for infrared astronomy, helping study early galaxies, star formation and exoplanet atmospheres.'],
+ ['Light-year','Distances','A light-year is a unit of distance: the distance light travels in one year, about 9.46 trillion kilometres.'],
+ ['Meteor shower','Cosmic events','Meteor showers occur when Earth passes through debris streams, often left by comets.'],
+ ['Eclipse','Cosmic events','An eclipse happens when one celestial body moves into the shadow of another or blocks its light from a viewpoint.'],
+ ['Moon phases','Observing','Moon phases arise from the changing fraction of the Moon’s sunlit half visible from Earth during its orbit.'],
+ ['Space telescope','Space exploration','Space telescopes observe above much of Earth’s atmosphere, avoiding atmospheric turbulence and accessing wavelengths blocked from the ground.'],
+ ['Solar system','Solar system','The Solar System includes the Sun, eight planets, dwarf planets, moons, small bodies and the heliosphere.']
+ ];
+ const facts=[
+ 'A day on Venus is longer than its year.',
+ 'Sunlight takes about 8 minutes and 20 seconds to reach Earth.',
+ 'The Milky Way and Andromeda galaxies are approaching one another and are expected to merge billions of years from now.',
+ 'Saturn’s rings are wide but remarkably thin compared with their diameter.',
+ 'Footprints left by Apollo astronauts can persist for a very long time because the Moon has no wind or rain.',
+ 'Neutron stars pack roughly stellar mass into a sphere about the size of a city.',
+ 'The James Webb Space Telescope observes primarily infrared light.',
+ 'The International Space Station circles Earth roughly every 90 minutes.',
+ 'A light-year measures distance, not time.',
+ 'The Sun contains more than 99 percent of the Solar System’s total mass.'
+ ];
+ const input=document.getElementById('astroSearch'),results=document.getElementById('astroResults'),factText=document.getElementById('factText');
+ if(!input||!results||!factText)return;
+ function render(q=''){
+  const query=q.trim().toLowerCase();
+  const found=entries.filter(e=>!query||(e[0]+' '+e[1]+' '+e[2]).toLowerCase().includes(query));
+  results.innerHTML=found.length?found.map(e=>`<article class="discover-result"><div class="tags">${e[1]}</div><h3>${e[0]}</h3><p>${e[2]}</p></article>`).join(''):'<p class="muted">No matching topic found. Try a planet, telescope, galaxy or cosmic event.</p>';
+ }
+ input.addEventListener('input',()=>render(input.value));
+ document.getElementById('astroSearchClear').addEventListener('click',()=>{input.value='';render();input.focus()});
+ let previous=-1;document.getElementById('newFact').addEventListener('click',()=>{let i;do{i=Math.floor(Math.random()*facts.length)}while(i===previous&&facts.length>1);previous=i;factText.textContent=facts[i]});
+ render();
+})();
+</script>
+
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const scenes=[];
+function createEngine(canvasId,hostId,cameraZ=8){
+ const canvas=document.getElementById(canvasId),host=document.getElementById(hostId);
+ if(!canvas||!host) return null;
+ let renderer,scene,camera,controls;
+ try{renderer=new THREE.WebGLRenderer({canvas,antialias:innerWidth>700,alpha:true,powerPreference:'low-power'});}
+ catch(e){const load=host.querySelector('.scene-loading');if(load)load.textContent='3D NOT AVAILABLE — PLEASE USE A WEBGL-CAPABLE BROWSER';return null;}
+ const dpr=Math.min(devicePixelRatio||1,innerWidth<700?1.25:1.8);
+ renderer.setPixelRatio(dpr);renderer.setSize(host.clientWidth,host.clientHeight,false);
+ renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+ scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(45,host.clientWidth/host.clientHeight,.1,3000);camera.position.set(0,1,cameraZ);
+ controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.045;controls.minDistance=2.3;controls.maxDistance=45;
+ controls.enablePan=false;
+ const resize=()=>{let w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()};
+ const ro=new ResizeObserver(resize);ro.observe(host);
+ const entry={renderer,scene,camera,controls,host,update:()=>{}};scenes.push(entry);
+ return entry;
+}
+function seeded(i){let x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)}
+function makeStars(scene,count=2200,radius=100){
+ const pos=new Float32Array(count*3),col=new Float32Array(count*3),sizes=new Float32Array(count);
+ for(let i=0;i<count;i++){let u=seeded(i+1),v=seeded(i+2),theta=2*Math.PI*u,phi=Math.acos(2*v-1),r=radius*(.25+.75*seeded(i+3));pos[i*3]=r*Math.sin(phi)*Math.cos(theta);pos[i*3+1]=r*Math.cos(phi);pos[i*3+2]=r*Math.sin(phi)*Math.sin(theta);let tint=seeded(i+4);let c=new THREE.Color(tint>.85?0x9ebdff:tint>.55?0xffdfbd:0xe6efff);col[i*3]=c.r;col[i*3+1]=c.g;col[i*3+2]=c.b;sizes[i]=.4+seeded(i+5)*1.6;}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));g.setAttribute('color',new THREE.BufferAttribute(col,3));
+ const m=new THREE.PointsMaterial({size:.09,vertexColors:true,transparent:true,opacity:.9,sizeAttenuation:true,depthWrite:false});
+ const p=new THREE.Points(g,m);scene.add(p);return p;
+}
+function nebulaCloud(scene){
+ const group=new THREE.Group();scene.add(group);
+ const palette=[0x4779a8,0x765b9b,0x387b87,0x9b6a87,0x294d79];
+ for(let c=0;c<6;c++){
+  const n=650,positions=new Float32Array(n*3),colors=new Float32Array(n*3);
+  const base=new THREE.Color(palette[c%palette.length]);
+  for(let i=0;i<n;i++){
+   let t=seeded(i+c*777),a=seeded(i+c*1777)*Math.PI*2;
+   let radius=(.5+seeded(i+c*2777)*2.3)*(c%2?1.0:.7);
+   let x=Math.cos(a)*radius+Math.sin(t*10+c)*.35;
+   let y=(seeded(i+c*3777)-.5)*1.4+Math.cos(a*2)*.28;
+   let z=Math.sin(a)*radius;
+   positions.set([x*1.35,y,z*1.15],i*3);
+   let shade=base.clone().multiplyScalar(.55+seeded(i+c*4777)*1.2);
+   colors.set([shade.r,shade.g,shade.b],i*3);
+  }
+  let g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(positions,3));g.setAttribute('color',new THREE.BufferAttribute(colors,3));
+  let mat=new THREE.PointsMaterial({size:.055+c*.008,vertexColors:true,transparent:true,opacity:.12+c*.018,depthWrite:false,blending:THREE.AdditiveBlending});
+  let points=new THREE.Points(g,mat);points.rotation.set(c*.35,c*.5,c*.17);group.add(points);
+ }
+ // Layered transparent cloud volumes: procedural sprites, not photographic gas.
+ for(let i=0;i<24;i++){
+  const sprite=new THREE.Sprite(new THREE.SpriteMaterial({color:palette[i%palette.length],transparent:true,opacity:.035+seeded(i)*.055,blending:THREE.AdditiveBlending,depthWrite:false}));
+  sprite.position.set((seeded(i+31)-.5)*6,(seeded(i+32)-.5)*2.7,(seeded(i+33)-.5)*4);
+  let s=1.1+seeded(i+34)*3;sprite.scale.set(s*1.7,s,1);group.add(sprite);
+ }
+ return group;
+}
+function makeGalaxy(scene){
+ const g=new THREE.Group();scene.add(g);
+ const arms=4,pts=16000,pos=new Float32Array(pts*3),colors=new Float32Array(pts*3);
+ for(let i=0;i<pts;i++){let arm=i%arms,r=Math.pow(seeded(i+2),.55)*5.7,angle=arm*Math.PI*2/arms+r*.95+(seeded(i+5)-.5)*.65;let y=(seeded(i+7)-.5)*(.35/(r*.2+1));pos.set([Math.cos(angle)*r,y,Math.sin(angle)*r],i*3);let c=new THREE.Color().setHSL(.56+seeded(i+9)*.12,.45,.48+seeded(i+10)*.25);colors.set([c.r,c.g,c.b],i*3)}
+ let geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));geo.setAttribute('color',new THREE.BufferAttribute(colors,3));
+ g.add(new THREE.Points(geo,new THREE.PointsMaterial({size:.025,vertexColors:true,transparent:true,opacity:.85,depthWrite:false,blending:THREE.AdditiveBlending})));
+ let core=new THREE.Mesh(new THREE.SphereGeometry(.55,32,24),new THREE.MeshBasicMaterial({color:0xffd7a2}));core.scale.set(1,.45,1);g.add(core);g.rotation.x=.25;return g;
+}
+function makeSolar(scene){
+ const group=new THREE.Group();scene.add(group);
+ const sun=new THREE.Mesh(new THREE.SphereGeometry(.58,48,32),new THREE.MeshStandardMaterial({color:0xffc36c,emissive:0xff8a2a,emissiveIntensity:1.8,roughness:.8}));group.add(sun);
+ const data=[['Mercury',.85,.09,0x99948c],['Venus',1.18,.15,0xc9a16d],['Earth',1.58,.16,0x3c83c7],['Mars',2.02,.12,0xb86649],['Jupiter',2.9,.36,0xcba77d],['Saturn',3.8,.30,0xd5c49b],['Uranus',4.65,.23,0x83c7d0],['Neptune',5.35,.22,0x5574c6]];
+ const bodies=[];
+ data.forEach((d,i)=>{let mesh=new THREE.Mesh(new THREE.SphereGeometry(d[2],32,24),new THREE.MeshStandardMaterial({color:d[3],roughness:.82,metalness:.02}));mesh.position.x=d[1];group.add(mesh);bodies.push(mesh);let ring=new THREE.Mesh(new THREE.TorusGeometry(d[1],.006,5,180),new THREE.MeshBasicMaterial({color:0x9bb8d8,transparent:true,opacity:.24}));ring.rotation.x=Math.PI/2;group.add(ring);if(i===5){let r=new THREE.Mesh(new THREE.RingGeometry(.4,.58,64),new THREE.MeshBasicMaterial({color:0xb7a58d,side:THREE.DoubleSide,transparent:true,opacity:.75}));r.rotation.x=Math.PI/2.3;r.position.copy(mesh.position);group.add(r)}});
+ group.scale.setScalar(.85);return {group,bodies};
+}
+function setMode(scene,mode,things){scene.traverse(o=>{if(o.userData.modePart)scene.remove(o)});things.forEach(o=>scene.remove(o));things.length=0;
+ if(mode==='nebula'){things.push(nebulaCloud(scene));}
+ if(mode==='galaxy'){things.push(makeGalaxy(scene));}
+ if(mode==='solar'){let s=makeSolar(scene);things.push(s.group);}
+}
+const cosmic=createEngine('cosmos3d','cosmosShell',9);
+if(cosmic){
+ cosmic.scene.add(new THREE.AmbientLight(0x8298b8,.8));let light=new THREE.PointLight(0x9bc8ee,35,40);light.position.set(4,5,6);cosmic.scene.add(light);
+ let stars=makeStars(cosmic.scene,innerWidth<700?1000:2600,90);let objects=[];let mode='nebula';setMode(cosmic.scene,mode,objects);
+ cosmic.controls.target.set(0,0,0);
+ document.querySelectorAll('[data-cosmos]').forEach(b=>b.addEventListener('click',()=>{let v=b.dataset.cosmos;if(v==='reset'){cosmic.camera.position.set(0,1,9);cosmic.controls.target.set(0,0,0);return}mode=v;document.querySelectorAll('[data-cosmos]').forEach(x=>x.classList.toggle('active',x===b));setMode(cosmic.scene,mode,objects);cosmic.camera.position.set(0,1,v==='solar'?10:9);cosmic.controls.target.set(0,0,0)}));
+ cosmic.update=()=>{stars.rotation.y+=.00008;if(objects[0]){objects[0].rotation.y+=mode==='galaxy'?.001:.00035;objects[0].rotation.x+=.0001}};
+}
+const pdata=[
+ ['Mercury','A small, heavily cratered rocky planet.'],['Venus','A dense atmosphere and extreme greenhouse heating.'],['Earth','Oceans, continents, clouds and a thin atmosphere.'],['Mars','A cold desert with ancient river valleys.'],['Jupiter','A gas giant with bands, storms and many moons.'],['Saturn','A gas giant surrounded by spectacular icy rings.'],['Uranus','An ice giant with an extreme axial tilt.'],['Neptune','A distant ice giant with powerful winds.']
+];
+const pc=createEngine('planet3d','planet3dShell',5.2);
+if(pc){
+ pc.scene.add(new THREE.AmbientLight(0x7185a0,.65));let sun=new THREE.DirectionalLight(0xffffff,3.1);sun.position.set(-4,2,5);pc.scene.add(sun);
+ let stars=makeStars(pc.scene,900,80);let group=new THREE.Group();pc.scene.add(group);
+ const colors=[0x99938a,0xcba779,0x397eb8,0xb65d43,0xcba77d,0xd5c49b,0x83c7d0,0x5574c6];
+ const names=pdata.map(x=>x[0]);let active=2,planet;
+ function choose(i){active=i;group.clear();let mat=new THREE.MeshStandardMaterial({color:colors[i],roughness:.86,metalness:.02});planet=new THREE.Mesh(new THREE.SphereGeometry(1.45,96,64),mat);group.add(planet);
+  if(i===5){let ring=new THREE.Mesh(new THREE.RingGeometry(1.8,2.55,128),new THREE.MeshStandardMaterial({color:0xb9a98d,side:THREE.DoubleSide,transparent:true,opacity:.85,roughness:1}));ring.rotation.x=1.25;group.add(ring)}
+  if(i===2){let atm=new THREE.Mesh(new THREE.SphereGeometry(1.53,64,48),new THREE.MeshBasicMaterial({color:0x7ab9ff,transparent:true,opacity:.12,side:THREE.BackSide}));group.add(atm)}
+  document.getElementById('planet3dTitle').textContent=names[i].toUpperCase();document.getElementById('planet3dSub').textContent=pdata[i][1];[...document.querySelectorAll('#planet3dButtons button')].forEach((b,j)=>b.classList.toggle('active',j===i));
+ }
+ names.forEach((n,i)=>{let b=document.createElement('button');b.textContent=n;b.onclick=()=>choose(i);document.getElementById('planet3dButtons').append(b)});choose(2);
+ pc.update=()=>{stars.rotation.y+=.0001;if(planet&&!reduce)planet.rotation.y+=.0018};
+}
+const tc=createEngine('scope3d','scopeShell',7.8);
+if(tc){
+ tc.scene.add(new THREE.HemisphereLight(0xc8ddff,0x202b3c,2));let key=new THREE.DirectionalLight(0xffffff,3.3);key.position.set(5,7,5);tc.scene.add(key);tc.scene.add(new THREE.AmbientLight(0x6b829f,.45));
+ let rig=new THREE.Group();tc.scene.add(rig);let metal=new THREE.MeshStandardMaterial({color:0x35465b,metalness:.78,roughness:.28}),tubeMat=new THREE.MeshStandardMaterial({color:0x151e2a,metalness:.48,roughness:.34}),edge=new THREE.MeshStandardMaterial({color:0x9eb5cb,metalness:.82,roughness:.25}),black=new THREE.MeshStandardMaterial({color:0x03060a,roughness:.4}),rubber=new THREE.MeshStandardMaterial({color:0x111820,roughness:.9});
+ function cyl(parent,r1,r2,len,mat,pos,rot){let m=new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,len,48),mat);m.position.set(...pos);if(rot)m.rotation.set(...rot);parent.add(m);return m}
+ // Main optical tube angled across the mount.
+ let tube=cyl(rig,.53,.53,3.5,tubeMat,[0,1.9,0],[0,0,Math.PI/2.7]);
+ cyl(rig,.555,.555,.12,edge,[-1.55,2.55,0],[0,0,Math.PI/2.7]);
+ cyl(rig,.56,.56,.12,edge,[1.55,1.25,0],[0,0,Math.PI/2.7]);
+ // Front aperture dark opening and rim.
+ let aperture=new THREE.Mesh(new THREE.CircleGeometry(.49,64),black);aperture.position.set(-1.62,2.58,0);aperture.rotation.y=-Math.PI/2.7;rig.add(aperture);
+ // Focuser and eyepiece.
+ cyl(rig,.18,.18,.42,metal,[.25,2.95,.18],[Math.PI/2,0,0]);cyl(rig,.12,.12,.3,edge,[.25,3.2,.18],[Math.PI/2,0,0]);cyl(rig,.09,.09,.22,black,[.25,3.43,.18],[Math.PI/2,0,0]);
+ // Mount head, saddle, counterweight shaft and counterweight.
+ cyl(rig,.36,.36,.55,metal,[0,.45,0],[Math.PI/2,0,0]);cyl(rig,.22,.22,.85,edge,[0,.15,0],[0,0,0]);
+ cyl(rig,.1,.1,1.6,metal,[.4,-.25,0],[0,0,Math.PI/2]);
+ cyl(rig,.32,.32,.42,metal,[1.05,-.25,0],[0,0,Math.PI/2]);
+ // Tripod central column and three splayed legs.
+ cyl(rig,.16,.2,1.55,metal,[0,-1.0,0],[0,0,0]);
+ for(let i=0;i<3;i++){let a=i*Math.PI*2/3+.2,x=Math.cos(a),z=Math.sin(a);let leg=cyl(rig,.075,.11,2.55,metal,[x*.68,-1.95,z*.68],[0,0,0]);leg.position.set(x*.65,-1.95,z*.65);leg.lookAt(x*1.9,-3.1,z*1.9);leg.rotateX(Math.PI/2)}
+ // Fine adjust knobs and feet.
+ for(let i=0;i<3;i++){let a=i*Math.PI*2/3;let foot=new THREE.Mesh(new THREE.SphereGeometry(.13,20,16),rubber);foot.position.set(Math.cos(a)*1.9,-3.2,Math.sin(a)*1.9);rig.add(foot)}
+ rig.rotation.z=.1;rig.scale.setScalar(.9);tc.controls.target.set(0,.1,0);tc.camera.position.set(6,4,7);tc.controls.minDistance=4.5;tc.controls.maxDistance=15;
+ let auto=true,exploded=false;document.getElementById('scopeRotate').onclick=e=>{auto=!auto;e.target.textContent='Auto rotate: '+(auto?'on':'off');e.target.classList.toggle('active',auto)};
+ document.getElementById('scopeExplode').onclick=e=>{exploded=!exploded;rig.position.y=exploded?.35:0;rig.rotation.z=exploded?.28:.1;e.target.classList.toggle('active',exploded)};
+ document.getElementById('scopeReset').onclick=()=>{rig.position.set(0,0,0);rig.rotation.set(0,0,.1);tc.camera.position.set(6,4,7);tc.controls.target.set(0,.1,0);exploded=false;document.getElementById('scopeExplode').classList.remove('active')};
+ tc.update=()=>{if(auto&&!reduce)rig.rotation.y+=.002};
+}
+let animationFrame=0;
+function animate(){
+ animationFrame=requestAnimationFrame(animate);
+ if(document.hidden)return;
+ for(const s of scenes){
+  const r=s.host.getBoundingClientRect();
+  // Keep GPU work focused on scenes near the viewport; each scene resumes naturally on scroll.
+  if(r.bottom< -120||r.top>innerHeight+120)continue;
+  s.controls.update();
+  if(!reduce)s.update();
+  s.renderer.render(s.scene,s.camera);
+ }
+}
+if(scenes.length){
+ animate();
+ document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){cancelAnimationFrame(animationFrame);animationFrame=0}
+  else if(!animationFrame)animate();
+ });
+}
+for(const id of ['cosmosLoading','planet3dLoading','scopeLoading']){let el=document.getElementById(id);if(el)setTimeout(()=>el.classList.add('done'),900)}
+</script>
+
+</body></html>
